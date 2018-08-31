@@ -1,4 +1,8 @@
 #include "Helpers.h"
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
 
 //--------------------------------------------------------------
 ofxImGui::Settings::Settings()
@@ -432,6 +436,25 @@ bool ofxImGui::AddRadio(ofParameter<int>& parameter, std::vector<std::string> la
 		parameter.set(tmpRef);
 	}
 	return result;
+}
+
+//--------------------------------------------------------------
+bool ofxImGui::AddCombo(ofParameter<int>& parameter, std::vector<std::string> labels, int height)
+{
+    ImGui::Text(parameter.getName().c_str());
+    auto result = false;
+    auto tmpRef = parameter.get();
+
+    std::vector<const char *> chars;
+    for(auto & str : labels){
+        chars.push_back(str.c_str());
+    }
+    
+    if(ImGui::Combo(parameter.getName().c_str(), &tmpRef, &chars[0], chars.size(), height)){
+        parameter.set(tmpRef);
+        return true;
+    }
+    return false;
 }
 
 //--------------------------------------------------------------
