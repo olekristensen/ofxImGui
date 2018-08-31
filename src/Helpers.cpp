@@ -441,7 +441,6 @@ bool ofxImGui::AddRadio(ofParameter<int>& parameter, std::vector<std::string> la
 //--------------------------------------------------------------
 bool ofxImGui::AddCombo(ofParameter<int>& parameter, std::vector<std::string> labels, int height)
 {
-    ImGui::Text(parameter.getName().c_str());
     auto result = false;
     auto tmpRef = parameter.get();
 
