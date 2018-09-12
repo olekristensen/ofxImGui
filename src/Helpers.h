@@ -39,7 +39,7 @@ namespace ofxImGui
 	void SetNextWindow(Settings& settings);
 	bool BeginWindow(ofParameter<bool>& parameter, Settings& settings, bool collapse = true);
 	bool BeginWindow(const std::string& name, Settings& settings, bool collapse = true, bool * open = nullptr);
-	bool BeginWindow(const std::string& name, Settings& settings, ImGuiWindowFlags flags, bool * open = nullptr);
+	bool BeginWindow(const std::string& name, Settings& settings, ImGuiWindowFlags flags, bool * open = nullptr, ImGuiSetCond setCond = ImGuiSetCond_Appearing);
 	void EndWindow(Settings& settings);
 
 	bool BeginTree(ofAbstractParameter& parameter, Settings& settings);

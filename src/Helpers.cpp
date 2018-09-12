@@ -77,7 +77,7 @@ bool ofxImGui::BeginWindow(const std::string& name, Settings& settings, bool col
 }
 
 //--------------------------------------------------------------
-bool ofxImGui::BeginWindow(const std::string& name, Settings& settings, ImGuiWindowFlags flags, bool * open)
+bool ofxImGui::BeginWindow(const std::string& name, Settings& settings, ImGuiWindowFlags flags, bool * open, ImGuiSetCond setCond)
 {
 	if (settings.windowBlock)
 	{
@@ -90,8 +90,8 @@ bool ofxImGui::BeginWindow(const std::string& name, Settings& settings, ImGuiWin
 	// Push a new list of names onto the stack.
 	windowOpen.usedNames.push(std::vector<std::string>());
 
-	ImGui::SetNextWindowPos(settings.windowPos, ImGuiSetCond_Appearing);
-	ImGui::SetNextWindowSize(settings.windowSize, ImGuiSetCond_Appearing);
+	ImGui::SetNextWindowPos(settings.windowPos, setCond);
+	ImGui::SetNextWindowSize(settings.windowSize, setCond);
 	ImGui::SetNextWindowCollapsed(!(flags & ImGuiWindowFlags_NoCollapse), ImGuiSetCond_Appearing);
 	return ImGui::Begin(name.c_str(), open, flags);
 }

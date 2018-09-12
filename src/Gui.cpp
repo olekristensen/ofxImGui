@@ -43,7 +43,7 @@ namespace ofxImGui
 		}
 		else
 		{
-			setTheme(new BaseTheme());
+			//setTheme(new BaseTheme());
 		}
 	}
 
